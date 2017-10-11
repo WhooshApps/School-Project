@@ -43,7 +43,7 @@ void user::getdata()
 void loading()
 {
  cout<<"\t\t\t";
- for(int i-0;i<20;i++)
+ for(int i=0;i<20;i++)
  {
   delay(200);
   cout<<(char)(178);
@@ -55,7 +55,7 @@ void loading()
 void login()
 {
  user temp;
- char *passtemp,*usertemp;
+ char *passtemp,*nametemp,ch;
  cout<<"Enter username\n"; gets(nametemp);
  cout<<"Enter password(leave empty if a new user)\n";
  loading();
@@ -63,7 +63,7 @@ void login()
  while(1)
  {
   cin>>ch;
-  if(ch=="\n")
+  if(ch=='\n')
    break;
   passtemp[i++]=ch;
  }
@@ -72,9 +72,9 @@ void login()
  while(1)
  {
   if(fin.eof()) break;
-  fin.read(temp,sizeof(temp));
+  fin.read((char *)&temp,sizeof(temp));
   hash(passtemp,temp.retk());
-  if(!strcmpi(passtemp,temp.retpass())&&!strcmpi(nametemp,temp.retname())
+  if(!strcmpi(passtemp,temp.retpass())&&!strcmpi(nametemp,temp.retname()))
   {
    check=1;
    break;

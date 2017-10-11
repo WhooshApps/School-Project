@@ -85,6 +85,5 @@ void login()
  {
   cout<<"New user detected\n";
   temp.getdata();
-  temp.writetofile();
  }
 }

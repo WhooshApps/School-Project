@@ -5,5 +5,5 @@ void main()
  randomize();
  ofstream fout("database.dat",ios::app|ios::binary);
  fout.close();
- //copy login screen from practical file
+ login();
 }

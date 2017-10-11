@@ -6,7 +6,13 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<fstream.h>
+#include<stdio.h>
+#include<process.h>
+#include<dos.h>
+#include<string.h>
 
+void login();
+void pattern();
 class user
 {
  char *name;

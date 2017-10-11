@@ -1,4 +1,4 @@
-#include"HEADERS/HEADER.h"
+#include<HEADERS/HEADER.H>
 
 // lxb = 80x24
 
