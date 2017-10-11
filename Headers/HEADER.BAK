@@ -1,15 +1,17 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 
-//#include<iostream.h>
+#include<iostream.h>
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
+#include<fstream.h>
 
 class user
 {
  char *name;
  char *pass;
+ int k;
  void getpass();
  void writetofile();
 public:
@@ -18,5 +20,8 @@ public:
   name=pass=NULL;
  }
  void getdata();
-}
+ char *retname();
+ char *retpass();
+ int *retk();
+};
 #endif //HEADER_H_INCLUDED

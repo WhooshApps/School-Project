@@ -20,5 +20,8 @@ public:
   name=pass=NULL;
  }
  void getdata();
+ char *retname();
+ char *retpass();
+ int retk();
 };
 #endif //HEADER_H_INCLUDED
