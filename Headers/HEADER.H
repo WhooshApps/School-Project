@@ -21,4 +21,33 @@ public:
  }
  void getdata();
 };
+
+
+class point {
+	int x;
+	int y;
+public:
+	int xcoord() {
+		return x;
+	}
+	int ycoord()
+	{
+		return y;
+	}
+	void pointget() {
+		cout << "x="; cin >> x;
+		cout << "y="; cin >> y;
+	}
+	void pointdisplay()
+	{
+		cout << (char)(250);
+	    cout<<'('<<x<<','<<y<<')';
+	}
+	void set(int a, int b) {
+		x = a;
+		y = b;
+	}
+};
+
+
 #endif //HEADER_H_INCLUDED
