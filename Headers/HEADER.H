@@ -1,10 +1,11 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 
-//#include<iostream.h>
+#include<iostream.h>
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
+#include<fstream.h>
 
 class user
 {
@@ -19,5 +20,5 @@ public:
   name=pass=NULL;
  }
  void getdata();
-}
+};
 #endif //HEADER_H_INCLUDED

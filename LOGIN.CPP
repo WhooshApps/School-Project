@@ -1,12 +1,14 @@
 #include"HEADERS\HEADER.h"
-void hash(char *temp,int k)
-{
+
+
+void hash(char * temp,int k) {
  int i=0;
  while(temp[i]!='\0')
  {
   temp[i]=temp[i++]+k;
  }
 }
+
 void user::getpass()
 {
  cout<<"\nEnter your password\n";
@@ -17,13 +19,15 @@ void user::getpass()
 void user::writetofile()
 {
  ofstream fout("database",ios::binary);
- fout.write((char)this,sizeof(user));
+ fout.write((char *)&this,sizeof(user));
  fout.close();
 }
+
+
 void user::getdata()
 {
  cout<<"Enter your name\n";
- gets(*name);
+ gets(name);
  getpass();
  writetofile();
 }
