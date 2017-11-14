@@ -1,13 +1,5 @@
 #include"HEADERS\HEADER.h"
 
-
-void hash(char * temp,int k) {
- int i=0;
- while(temp[i]!='\0')
- {
-  temp[i]=temp[i++]+k;
- }
-}
 char *user::retpass()
 {
  return pass;
@@ -16,16 +8,10 @@ char *user::retname()
 {
  return name;
 }
-int user::retk()
-{
- return k;
-}
 void user::getpass()
 {
- cout<<"\nEnter your password\n";
+ cout<<"\nEnter your password\n(MAX 6 length)";
  gets(pass);
- k=random(random(100)+random(100));
- hash(pass,k);
 }
 void user::writetofile()
 {
@@ -37,44 +23,51 @@ void user::getdata()
 {
  cout<<"Enter your name\n";
  gets(name);
+ if(!(strcmpi(name,"NALIN"))||!(strcmpi(name,"HARSHIT")))
+  isadmin=1;
  getpass();
  writetofile();
 }
 void loading()
 {
+ clrscr();
+ textcolor(BLUE);
  cout<<"\t\t\t";
- for(int i=0;i<20;i++)
+ for(int i=0;i<=20;i++)
  {
   delay(200);
-  cout<<(char)(178);
+  cprintf("%c",178);
   gotoxy(34,2);
-  cout<<i*5<<'%';
+  cprintf("%i",i*5);
+  cprintf("%");
   gotoxy(24+i,1);
  }
 }
 void login()
 {
  user temp;
- char *passtemp,*nametemp,ch;
- cout<<"Enter username\n"; gets(nametemp);
- cout<<"Enter password(leave empty if a new user)\n";
- loading();
+ char passtemp[6],nametemp[100],ch;
+ cout<<"Enter username\n"; cin.getline(nametemp,100);
+ cout<<"Enter password(leave empty if a new user)(MAX length 6)\n";
  int i=0,check=0;
- while(1)
+ while(i<6)
  {
-  cin>>ch;
+  ch=getch();
+  cout<<'*';
   if(ch=='\n')
    break;
   passtemp[i++]=ch;
  }
  passtemp[i]='\0';
+ loading();
+ clrscr();
+ cout.write(passtemp,6);
  ifstream fin("database",ios::binary);
- while(1)
+ while(fin.read((char *)&temp,sizeof(temp)))
  {
   if(fin.eof()) break;
-  fin.read((char *)&temp,sizeof(temp));
-  hash(passtemp,temp.retk());
-  if(!strcmpi(passtemp,temp.retpass())&&!strcmpi(nametemp,temp.retname()))
+  cout<<"hello";
+  if(!(strcmpi(passtemp,temp.retpass()))&&!(strcmpi(nametemp,temp.retname())))
   {
    check=1;
    break;
@@ -86,4 +79,11 @@ void login()
   cout<<"New user detected\n";
   temp.getdata();
  }
+ else
+ {
+  cprintf("Welcome");
+  cprintf(temp.retname());
+ }
+ if(temp.admin())
+  cout<<"ADMIN DETECTED\n";
 }
