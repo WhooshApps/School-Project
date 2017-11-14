@@ -41,6 +41,7 @@ void algorithm2(point &currpt, point* cornerpt,int t) {
 
 void pattern() {
  int T,i;
+ textcolor(RED);
  point * cornerpoints= new point[T];
  point startingpoint;
  startingpoint.set(40,12);
@@ -93,6 +94,10 @@ void pattern() {
   case 5: for(i=0; i<5000; i++)
 	     algorithm2(startingpoint, cornerpoints, T);
 	  break;
+  case 6: for(i=0; i<5000; i++)
+             algorithm1(startingpoint, cornerpoints, T);
+          break;
+  default: cout<<"Not implemented yet\n";	  		
  }
  getch();
 }
