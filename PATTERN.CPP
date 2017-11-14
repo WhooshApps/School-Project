@@ -15,7 +15,7 @@ inline void algorithm1(point &currpt, point* cornerpt,int t) {
  currpt.set(x,y);
 
  gotoxy(x,y);
- cout<<(char)250;
+ cprintf("%c",250);
 }
 
 int save=0;
@@ -34,7 +34,7 @@ void algorithm2(point &currpt, point* cornerpt,int t) {
  currpt.set(x,y);
 
  gotoxy(x,y);
- cout<<(char)250;
+ cprintf("%c",250);
  save=j;
 }
 
@@ -45,7 +45,7 @@ void pattern() {
  point startingpoint;
  startingpoint.set(40,12);
  clrscr();
- cout<<"Enter the no. of corner points\n";
+ cout<<"Enter the no. of corner points(3-6)\n";
  cin>>T;
 
  switch(T) {
@@ -71,7 +71,7 @@ void pattern() {
   cornerpoints[4].set(80,16);
   cornerpoints[5].set(40,24);
 	  break;
-    default: cout<<"Aukat nhi hai bhai\n";
+    default: cout<<"Wrong choice\n";
  }
  clrscr();
  for(i=0;i<T;i++) {
@@ -82,6 +82,7 @@ void pattern() {
  startingpoint.pointdisplay();
  getch();
  clrscr();
+ textcolor(LIGHTGREEN+BLINK);
  switch(T) {
   case 3: for(i=0; i<5000; i++)
 	     algorithm1(startingpoint, cornerpoints, T);
