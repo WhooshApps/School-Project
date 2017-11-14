@@ -59,8 +59,7 @@ void login()
   passtemp[i++]=ch;
  }
  tm * logintime;
- time_t abc=time(0);
- logintime = localtime(&abc);
+ logintime = localtime(&t);
  passtemp[i]='\0';
  loading();
  clrscr();
