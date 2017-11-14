@@ -14,7 +14,7 @@
 
 
 class logger{
-  fstream log.("logfile.txt", ios::out | ios::app);
+  fstream log("logfile.txt", ios::out | ios::app);
   tm * initime;
   clock_t time_in;
   public :
@@ -24,10 +24,22 @@ class logger{
       log<<asctime(initime);
       log<<"-------------------------------------------------------------\n\n";
    }
-   void log_userdetails();
-   void
+   void log_olduser(user, tm*);
+   void log_newuser(user, tm*);
+   void log_admin(user, tm*);
 };
 
+inline void log_olduser(user use, tm * logintime){
+ log<<"\n`"<<use.retname()<<"` logged in at "<<asctime(logintime);
+}
+
+inline void log_newuser(user use, tm * logintime){
+ log<<"\nNew user `"<<use.retname()<<"` created and added to database at "<<asctime(logintime);
+}
+
+inline void log_admin(user use, tm * logintime){
+  log<<"\nBow before thy admin Sir "<<use.retname()<<" as he controls thy program, beginning at "<<asctime(logintime);
+}
 
 void login();
 void pattern();
@@ -67,8 +79,7 @@ public:
 	}
 	void pointdisplay()
 	{
-		cout << (char)(250);
-	    cout<<'('<<x<<','<<y<<')';
+		cprintf("%c",250);
 	}
 	void set(int a, int b) {
 		x = a;

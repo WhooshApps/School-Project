@@ -58,6 +58,8 @@ void login()
    break;
   passtemp[i++]=ch;
  }
+ tm * logintime;
+ logintime = localtime(&t);
  passtemp[i]='\0';
  loading();
  clrscr();
@@ -78,12 +80,15 @@ void login()
  {
   cout<<"New user detected\n";
   temp.getdata();
+  logi.log_newuser(temp, logintime);
  }
  else
  {
   cprintf("Welcome");
   cprintf(temp.retname());
+  logi.log_olduser(temp, logintime);
  }
  if(temp.admin())
   cout<<"ADMIN DETECTED\n";
+  logi.log_admin(temp, logintime);
 }
